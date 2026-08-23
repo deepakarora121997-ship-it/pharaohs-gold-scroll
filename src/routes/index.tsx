@@ -129,15 +129,15 @@ function Doors({ onOpen, opened }: { onOpen: () => void; opened: boolean }) {
       {(["left", "right"] as const).map((side) => (
         <div
           key={side}
-          className={`absolute top-0 h-full w-1/2 ${side === "left" ? "left-0" : "right-0"}`}
+          className={`absolute top-0 h-full w-1/2 ${side === "left" ? "left-0" : "right-0"} ${
+            entering ? (side === "left" ? "animate-door-left" : "animate-door-right") : ""
+          }`}
           style={{
             transformOrigin: side === "left" ? "left center" : "right center",
-            animation: entering
-              ? `var(--animate-door-${side})`
-              : undefined,
             backfaceVisibility: "hidden",
           }}
         >
+
           <div className="relative h-full w-full overflow-hidden">
             <img
               src={doorImg}
