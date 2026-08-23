@@ -1,8 +1,11 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Props = { count?: number; className?: string };
 
 export function Particles({ count = 28, className = "" }: Props) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const dots = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
@@ -16,6 +19,9 @@ export function Particles({ count = 28, className = "" }: Props) {
       })),
     [count],
   );
+
+  if (!mounted) return null;
+
 
   return (
     <div
