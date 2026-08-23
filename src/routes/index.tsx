@@ -95,10 +95,11 @@ function Doors({ onOpen, opened }: { onOpen: () => void; opened: boolean }) {
         <Particles count={34} />
       </div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+      {/* revealed behind the doors */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
         <div
-          className={`transition-all duration-1000 ${
-            entering ? "translate-y-4 opacity-0 blur-sm" : "opacity-100"
+          className={`transition-all delay-500 duration-[1600ms] ${
+            entering ? "scale-100 opacity-100 blur-0" : "scale-95 opacity-0 blur-[2px]"
           }`}
         >
           <GlyphStrip />
@@ -111,19 +112,31 @@ function Doors({ onOpen, opened }: { onOpen: () => void; opened: boolean }) {
           <p className="mx-auto mt-6 max-w-md font-body text-base tracking-[0.2em] text-ivory/85 uppercase sm:text-lg">
             Request the honour of your presence at their Wedding Ceremony
           </p>
-          <button
-            onClick={handle}
-            disabled={entering}
-            className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-sm border border-gold/70 px-8 py-4 font-display text-xs tracking-[0.35em] text-ink uppercase shadow-[var(--shadow-gold)] transition-transform duration-500 hover:scale-105 sm:text-sm"
-            style={{ background: "var(--gradient-gold)", backgroundSize: "200% 100%" }}
-          >
-            <span className="relative z-10">Open Invitation</span>
-            <span aria-hidden className="relative z-10 text-base">
-              𓋹
-            </span>
-          </button>
         </div>
       </div>
+
+      {/* invitation seal in front of the doors */}
+      <div
+        className={`absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center transition-all duration-700 ${
+          entering ? "pointer-events-none translate-y-3 opacity-0" : "opacity-100"
+        }`}
+      >
+        <p className="font-display text-xs tracking-[0.5em] text-gold/90 uppercase sm:text-sm">
+          Waleed <span className="font-body italic">&</span> Irinka
+        </p>
+        <button
+          onClick={handle}
+          disabled={entering}
+          className="mt-6 inline-flex items-center gap-3 rounded-sm border border-gold/70 px-8 py-4 font-display text-xs tracking-[0.35em] text-ink uppercase shadow-[var(--shadow-gold)] transition-transform duration-500 hover:scale-105 sm:text-sm"
+          style={{ background: "var(--gradient-gold)", backgroundSize: "200% 100%" }}
+        >
+          Open Invitation
+          <span aria-hidden className="text-base">
+            𓋹
+          </span>
+        </button>
+      </div>
+
 
       {/* the two golden doors */}
       {(["left", "right"] as const).map((side) => (
