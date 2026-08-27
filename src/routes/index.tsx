@@ -44,19 +44,14 @@ function Ornament({ className = "", flip = false }: { className?: string; flip?:
       loading="lazy"
       width={1152}
       height={576}
-      className={`mx-auto w-56 opacity-90 animate-glow-pulse sm:w-72 ${
-        flip ? "rotate-180" : ""
-      } ${className}`}
+      className={`mx-auto w-56 opacity-90 animate-glow-pulse sm:w-72 ${flip ? "rotate-180" : ""} ${className}`}
     />
   );
 }
 
 function GlyphStrip() {
   return (
-    <p
-      aria-hidden
-      className="hieroglyph-strip animate-sway select-none text-center text-xs sm:text-sm"
-    >
+    <p aria-hidden className="hieroglyph-strip animate-sway select-none text-center text-xs sm:text-sm">
       {GLYPHS}
     </p>
   );
@@ -139,7 +134,6 @@ function Doors({ onOpen, opened }: { onOpen: () => void; opened: boolean }) {
         </button>
       </div>
 
-
       {/* the two golden doors */}
       {(["left", "right"] as const).map((side) => (
         <div
@@ -152,7 +146,6 @@ function Doors({ onOpen, opened }: { onOpen: () => void; opened: boolean }) {
             backfaceVisibility: "hidden",
           }}
         >
-
           <div className="relative h-full w-full overflow-hidden">
             <img
               src={doorImg}
@@ -209,13 +202,8 @@ function Countdown() {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
       {parts.map((p) => (
-        <div
-          key={p.label}
-          className="frame-gold relative bg-card/60 px-4 py-6 backdrop-blur-sm sm:py-8"
-        >
-          <div className="font-display text-3xl text-gold-plate sm:text-5xl">
-            {String(p.value).padStart(2, "0")}
-          </div>
+        <div key={p.label} className="frame-gold relative bg-card/60 px-4 py-6 backdrop-blur-sm sm:py-8">
+          <div className="font-display text-3xl text-gold-plate sm:text-5xl">{String(p.value).padStart(2, "0")}</div>
           <div className="mt-2 font-body text-[0.65rem] tracking-[0.35em] text-ivory/70 uppercase sm:text-xs">
             {p.label}
           </div>
@@ -265,9 +253,7 @@ function Rsvp() {
           className="frame-gold mx-auto mt-2 grid max-w-xl gap-5 bg-card/60 p-6 text-left backdrop-blur-sm sm:p-8"
         >
           <label className="grid gap-2">
-            <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">
-              Full name
-            </span>
+            <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">Full name</span>
             <input
               required
               value={form.name}
@@ -279,9 +265,7 @@ function Rsvp() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2">
-              <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">
-                Guests
-              </span>
+              <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">Guests</span>
               <select
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
@@ -295,9 +279,7 @@ function Rsvp() {
               </select>
             </label>
             <label className="grid gap-2">
-              <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">
-                Attending
-              </span>
+              <span className="font-body text-[0.7rem] tracking-[0.3em] text-gold uppercase">Attending</span>
               <select
                 value={form.attending}
                 onChange={(e) => setForm({ ...form, attending: e.target.value })}
@@ -338,9 +320,7 @@ function Rsvp() {
 /* ---------------- Page ---------------- */
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="text-center text-2xl text-gold-plate sm:text-4xl">{children}</h2>
-  );
+  return <h2 className="text-center text-2xl text-gold-plate sm:text-4xl">{children}</h2>;
 }
 
 function Invitation() {
@@ -365,10 +345,7 @@ function Invitation() {
     <main className="relative">
       <Doors onOpen={() => setOpened(true)} opened={opened} />
 
-      <div
-        ref={contentRef}
-        className={`transition-opacity duration-1000 ${opened ? "opacity-100" : "opacity-0"}`}
-      >
+      <div ref={contentRef} className={`transition-opacity duration-1000 ${opened ? "opacity-100" : "opacity-0"}`}>
         {/* Welcome */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-24">
           <img
@@ -386,9 +363,7 @@ function Invitation() {
             <Reveal>
               <GlyphStrip />
               <Ornament className="mt-6" />
-              <p className="mt-6 font-body text-xs tracking-[0.5em] text-sand uppercase">
-                The royal union of
-              </p>
+              <p className="mt-6 font-body text-xs tracking-[0.5em] text-sand uppercase">The royal union of</p>
               <h1 className="mt-4 text-4xl leading-tight text-gold-plate sm:text-6xl">
                 WALEED <span className="font-body italic">&</span> IRINKA
               </h1>
@@ -403,17 +378,11 @@ function Invitation() {
 
         {/* Save the date */}
         <section className="relative overflow-hidden px-6 py-24 sm:py-32">
-          <div
-            aria-hidden
-            className="absolute inset-x-0 top-0 h-px"
-            style={{ background: "var(--gradient-gold)" }}
-          />
+          <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: "var(--gradient-gold)" }} />
           <Particles count={16} />
           <div className="relative mx-auto max-w-4xl text-center">
             <Reveal>
-              <p className="font-body text-xs tracking-[0.5em] text-gold uppercase">
-                Save the date
-              </p>
+              <p className="font-body text-xs tracking-[0.5em] text-gold uppercase">Save the date</p>
               <div className="mt-8 flex items-center justify-center gap-4 font-display text-5xl text-gold-plate sm:gap-8 sm:text-8xl">
                 <span>12</span>
                 <span className="text-gold/60">•</span>
@@ -436,15 +405,10 @@ function Invitation() {
               <div className="frame-gold relative bg-card/50 px-6 py-14 text-center backdrop-blur-sm sm:px-14">
                 <Ornament className="w-44 sm:w-56" />
                 <SectionTitle>Wedding Ceremony</SectionTitle>
-                <p className="mt-8 font-display text-2xl text-ivory sm:text-4xl">
-                  12 September 2026
-                </p>
-                <p className="mt-3 font-body text-xl tracking-[0.3em] text-gold sm:text-2xl">
-                  5:00 PM
-                </p>
+                <p className="mt-8 font-display text-2xl text-ivory sm:text-4xl">12 September 2026</p>
+                <p className="mt-3 font-body text-xl tracking-[0.3em] text-gold sm:text-2xl">5:00 PM</p>
                 <p className="mx-auto mt-8 max-w-md font-body text-ivory/70">
-                  Beneath golden lanterns and desert stars, we ask you to stand with us as vows are
-                  spoken.
+                  Beneath golden lanterns and desert stars, we ask you to stand with us as vows are spoken.
                 </p>
                 <GlyphStrip />
               </div>
@@ -468,7 +432,7 @@ function Invitation() {
         <section className="relative px-6 py-20 sm:py-28">
           <div className="mx-auto max-w-5xl">
             <Reveal>
-              <SectionTitle>Our Story</SectionTitle>
+              <SectionTitle>Our Venue</SectionTitle>
               <div className="gold-rule mx-auto mt-6 w-40" />
             </Reveal>
             <div className="mt-14 grid gap-12 sm:grid-cols-2 sm:gap-10">
