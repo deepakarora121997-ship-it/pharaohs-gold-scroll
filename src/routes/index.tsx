@@ -8,7 +8,8 @@ import ornament from "@/assets/ornament.png";
 import pyramidsSunset from "@/assets/pyramids-sunset.jpg";
 import pyramidsNight from "@/assets/pyramids-night.jpg";
 import story1 from "@/assets/story-1-hd.jpg";
-import story2 from "@/assets/story-2.jpg";
+import story2Asset from "@/assets/story-2.png.asset.json";
+const story2 = story2Asset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
