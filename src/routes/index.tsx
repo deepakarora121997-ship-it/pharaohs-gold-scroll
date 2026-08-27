@@ -7,7 +7,8 @@ import doorImg from "@/assets/temple-door.jpg";
 import ornament from "@/assets/ornament.png";
 import pyramidsSunset from "@/assets/pyramids-sunset.jpg";
 import pyramidsNight from "@/assets/pyramids-night.jpg";
-import story1 from "@/assets/story-1.jpg";
+import story1Asset from "@/assets/story-1.jpg.asset.json";
+const story1 = story1Asset.url;
 import story2 from "@/assets/story-2.jpg";
 
 export const Route = createFileRoute("/")({
