@@ -433,6 +433,11 @@ function Invitation() {
           <div className="mx-auto max-w-5xl">
             <Reveal>
               <SectionTitle>Our Venue</SectionTitle>
+              <p className="mt-6 font-body text-lg tracking-[0.2em] text-ivory/75 uppercase">
+                Saturday · Five o'clock in the evening
+              </p>
+              Where our forever begins. In a place filled with beauty, warmth, and timeless elegance, we gather with the
+              people we cherish most to celebrate the love that brought us here.
               <div className="gold-rule mx-auto mt-6 w-40" />
             </Reveal>
             <div className="mt-14 grid gap-12 sm:grid-cols-2 sm:gap-10">
